@@ -1,7 +1,7 @@
 import streamlit as st
 from src.utils import predict
 
-st.image("Images/Icon.png", use_container_width=True)
+#st.image("Images/Icon.png", use_container_width=True)
 
 # Title of the web app (English and Arabic)
 st.title("Real Estate Price Prediction / التنبؤ بسعر العقار")

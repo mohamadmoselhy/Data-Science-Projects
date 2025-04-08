@@ -3,9 +3,9 @@ import joblib
 import streamlit as st
 
 
-def predict(user_input):
-    LinearRegMod = joblib.load('LinearRegression/Model/App/model.pkl')  # Load the trained model
-    MyScaler = joblib.load('LinearRegression/Model/App/scaler.pkl')  # Load the saved scaler
+def predict(user_input,ModelPath,ScalerPath):
+    LinearRegMod = joblib.load(ModelPath)  # Load the trained model
+    MyScaler = joblib.load(ScalerPath)  # Load the saved scaler
     # Convert dict to 2D array if needed
     input_array = np.array([list(user_input.values())])
     input_array=MyScaler.transform(input_array)
@@ -28,6 +28,7 @@ def get_user_input():
     condition = st.selectbox("Condition (1 to 5): / الحالة (من 1 إلى 5):", [1, 2, 3, 4, 5])
     grade = st.selectbox("Grade (1 to 13): / الدرجة (من 1 إلى 13):", [i for i in range(1, 14)])
     yr_built = st.number_input("Year Built: / سنة البناء:", min_value=1900, max_value=2025)
+    Renovated = st.selectbox("Renovated (1 = Yes, 0 = No): / تم تجديده (1 = نعم، 0 = لا):", [0, 1])
     sqft_lot = st.number_input("Lot Size (sqft): / حجم الأرض (قدم مربع):", min_value=500, max_value=100000)
     sqft_above = st.number_input("Square Footage of Area Above Ground (sqft): / مساحة المنطقة فوق الأرض (قدم مربع):", min_value=100, max_value=10000)
     sqft_basement = st.number_input("Square Footage of Basement (sqft): / مساحة الطابق السفلي (قدم مربع):", min_value=0, max_value=5000)
@@ -43,6 +44,7 @@ def get_user_input():
         'condition': condition,
         'grade': grade,
         'yr_built': yr_built,
+        'Renovated':Renovated,
         'sqft_lot': sqft_lot,
         'sqft_above': sqft_above,
         'sqft_basement': sqft_basement

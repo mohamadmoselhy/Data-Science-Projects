@@ -1,15 +1,15 @@
 import streamlit as st
 from src.utils import predict,get_user_input
-""""
+
 ImagePath='LinearRegression/Model/App/Images/Icon.png'         #Git Path
 ModelPath='LinearRegression/Model/App/model.pkl'           #Git Path              
 ScalerPath='LinearRegression/Model/App/scaler.pkl'         #Git Path
-"""
 
+"""
 ImagePath="D:\My drive\Course\Data Science\Models Testing\Data-Science-Projects\LinearRegression\Model\App\Images\Icon.png"          #Local Path
 ModelPath="D:\My drive\Course\Data Science\Models Testing\Data-Science-Projects\LinearRegression\Model\App\model.pkl"           #Git Path              
 ScalerPath="D:\My drive\Course\Data Science\Models Testing\Data-Science-Projects\LinearRegression\Model\App\scaler.pkl"         #Git Path
-
+"""
 
 st.image(ImagePath, use_container_width=True)
 # Title of the web app (English and Arabic)
